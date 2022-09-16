@@ -16,6 +16,7 @@ public class Projectile : MonoBehaviour
         if (enemyhp != null)
         {
             enemyhp.ApplyDamage(_damage);
+            Destroy(gameObject);
         }
     }
 

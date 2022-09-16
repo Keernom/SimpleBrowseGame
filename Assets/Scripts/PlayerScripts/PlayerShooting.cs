@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PlayerShooting : MonoBehaviour
 {
-    [SerializeField] GameObject _projectile;
+    [SerializeField] GameObject _projectilePrefab;
 
     void Start()
     {
@@ -14,7 +14,7 @@ public class PlayerShooting : MonoBehaviour
     {
         while(true)
         {
-            var go = Instantiate(_projectile, transform.position, Quaternion.identity);
+            var go = Instantiate(_projectilePrefab, transform.position, Quaternion.identity);
             yield return new WaitForSeconds(.5f);
         }
     }
