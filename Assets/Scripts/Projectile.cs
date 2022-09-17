@@ -2,8 +2,14 @@
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] float _speed;
-    [SerializeField] float _damage;
+    float _speed;
+    float _projectileDamage;
+
+    public void SetStats(float speed, float damage)
+    {
+        _speed = speed;
+        _projectileDamage = damage;
+    }    
 
     void Update()
     {
@@ -13,9 +19,10 @@ public class Projectile : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         var enemyhp = other.gameObject.GetComponent<EnemyHP>();
+
         if (enemyhp != null)
         {
-            enemyhp.ApplyDamage(_damage);
+            enemyhp.ApplyDamage(_projectileDamage);
             Destroy(gameObject);
         }
     }

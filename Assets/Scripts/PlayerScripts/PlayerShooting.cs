@@ -3,19 +3,32 @@ using UnityEngine;
 
 public class PlayerShooting : MonoBehaviour
 {
-    [SerializeField] GameObject _projectilePrefab;
+    [SerializeField] Weapon _defaultWeapon;
+    [SerializeField] Transform _spawnPoint;
 
     void Start()
     {
-        StartCoroutine(Shooting());
+        _defaultWeapon.Spawn(_spawnPoint);
+        _defaultWeapon.Shoot();
     }
 
-    IEnumerator Shooting()
+    //IEnumerator Shooting()
+    //{
+    //    while(true)
+    //    {
+    //        //var go = Instantiate(_projectilePrefab, transform.position, Quaternion.identity);
+            
+    //        yield return new WaitForSeconds(.5f);
+    //    }
+    //}
+
+    public Weapon GetWeapon()
     {
-        while(true)
-        {
-            var go = Instantiate(_projectilePrefab, transform.position, Quaternion.identity);
-            yield return new WaitForSeconds(.5f);
-        }
+        return _defaultWeapon;
+    }
+
+    public Vector3 GetPosition()
+    {
+        return transform.position;
     }
 }
