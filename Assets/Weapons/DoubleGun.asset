@@ -10,7 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6cf8a0eaac8fe9e4ba985bdb81f04df7, type: 3}
-  m_Name: SingleGun
+  m_Name: DoubleGun
   m_EditorClassIdentifier: 
-  _weaponPrefab: {fileID: 5839142628262040996, guid: 46d144e660eb0ad4bb4aff98aa24e305,
+  _weaponPrefab: {fileID: 3144368687759366309, guid: 5838bfc0ee93fc14cb8e5e0f246a22ee,
     type: 3}
+  _projectilePrefab: {fileID: 5939479244645142046, guid: c2f4422c54c9ed04da5220bdb884ae3c,
+    type: 3}
+  _weaponDamage: 5
+  _projectileSpeed: 5

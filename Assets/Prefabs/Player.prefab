@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 7829957886310194011}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -140,8 +140,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45555ad1e809eee419db43f1b95322e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _projectile: {fileID: 5939479244645142046, guid: c2f4422c54c9ed04da5220bdb884ae3c,
-    type: 3}
+  _defaultWeapon: {fileID: 11400000, guid: 9d00c774a64fd9e479f3bab2c48e9107, type: 2}
+  _spawnPoint: {fileID: 7829957886310194008}
 --- !u!65 &7829957886310194011
 BoxCollider:
   m_ObjectHideFlags: 0

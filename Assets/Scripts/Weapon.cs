@@ -20,11 +20,18 @@ public class Weapon : ScriptableObject
     public void Spawn(Transform spawnPoint)
     {
         weapon = Instantiate(_weaponPrefab, spawnPoint);
+        
     }
 
     public void Shoot()
     {
         weapon.GetComponent<IShootPattern>().Shoot();
+    }
+
+    public void DestroyWeapon()
+    {
+        weapon.GetComponent<IShootPattern>().StopShoot();
+        Destroy(weapon);
     }
 
     public GameObject GetWeapon()

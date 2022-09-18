@@ -6,29 +6,25 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] Weapon _defaultWeapon;
     [SerializeField] Transform _spawnPoint;
 
+    Weapon _currentWeapon;
+
     void Start()
     {
-        _defaultWeapon.Spawn(_spawnPoint);
-        _defaultWeapon.Shoot();
+        SetWeapon(_defaultWeapon);
     }
 
-    //IEnumerator Shooting()
-    //{
-    //    while(true)
-    //    {
-    //        //var go = Instantiate(_projectilePrefab, transform.position, Quaternion.identity);
-            
-    //        yield return new WaitForSeconds(.5f);
-    //    }
-    //}
+    public void SetWeapon(Weapon weapon)
+    {
+        if (_currentWeapon != null) 
+            _currentWeapon.DestroyWeapon();
+
+        _currentWeapon = weapon;
+        _currentWeapon.Spawn(_spawnPoint);
+        _currentWeapon.Shoot();
+    }
 
     public Weapon GetWeapon()
     {
-        return _defaultWeapon;
-    }
-
-    public Vector3 GetPosition()
-    {
-        return transform.position;
+        return _currentWeapon;
     }
 }
