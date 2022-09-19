@@ -5,8 +5,6 @@ public class LinePattern : MonoBehaviour, IShootPattern
 {
     IEnumerator Shooting()
     {
-        yield return new WaitForSeconds(.5f);
-
         Weapon weapon = transform.parent.GetComponent<PlayerShooting>().GetWeapon();
         GameObject _projectilePrefab = weapon.GetProjectile;
         

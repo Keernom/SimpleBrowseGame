@@ -3,15 +3,30 @@ using UnityEngine.Events;
 
 public class EnemyHP : MonoBehaviour
 {
-    [SerializeField] float _health = 1;
-    public float Health { get { return _health; } }
+    int _health = -1;
+    public int Health { get { return _health; } }
 
     public UnityAction OnHit;
 
-    public void ApplyDamage(float damage)
+    ColorController _colorController;
+    Material _material;
+
+    private void Start()
+    {
+        _colorController = FindObjectOfType<ColorController>();
+        float hitPoints = Random.Range(_colorController._maxHP/2.5f, _colorController._maxHP);
+        _health = Mathf.RoundToInt(hitPoints);
+
+        _material = transform.GetChild(0).GetComponent<Renderer>().material;
+        _material.SetColor("_Color", _colorController.GetColor(_health));
+    }
+
+    public void ApplyDamage(int damage)
     {
         _health -= damage;
-        
+
+        _material.SetColor("_Color", _colorController.GetColor(_health));
+
         if (_health <= 0)
         {
             Destroy(gameObject);

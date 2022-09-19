@@ -5,6 +5,7 @@ public class EnemySpawn : MonoBehaviour
 {
     [SerializeField] GameObject _enemyPrefab;
     [SerializeField] int _enemyCount;
+    [SerializeField] float _spawnCooldown;
 
     Vector3 _spawnPos;
 
@@ -29,7 +30,7 @@ public class EnemySpawn : MonoBehaviour
 
             _spawnPos.x = -_enemyScaleX * _enemyCount/2;
 
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(_spawnCooldown);
         }
     }
 }
