@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DobuleShotPattern : MonoBehaviour, IShootPattern
+public class DoubleShotPattern : MonoBehaviour, IShootPattern
 {
     IEnumerator Shooting()
     {
@@ -13,17 +13,16 @@ public class DobuleShotPattern : MonoBehaviour, IShootPattern
         
         while (true)
         {
-            Vector3 position = transform.position;
-
-            for (int i = -1; i < 1; i++)
+            for (int i = 0; i < 2; i++)
             {
-                position.x += 1;
-                var a = Instantiate(_projectilePrefab, position , Quaternion.identity);
+                Vector3 position = transform.GetChild(i).position;
+                position.z += 2;
+                var a = Instantiate(_projectilePrefab, position, Quaternion.identity);
                 a.GetComponent<Projectile>().SetStats(weapon.GetSpeed, weapon.GetDamage);
                 print(weapon.GetDamage);
             }
             
-            yield return new WaitForSeconds(.5f);
+            yield return new WaitForSeconds(weapon.GetFireRate);
         }
     }
 
