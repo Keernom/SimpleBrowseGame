@@ -9,10 +9,9 @@ public class EnemyMovement : MonoBehaviour
     private void Update()
     {
         transform.Translate(Vector3.back * Time.deltaTime * _speed);
-    }
+        Camera camera = Camera.main;
 
-    private void OnBecameInvisible()
-    {
-        Destroy(gameObject);
+        //if (transform.position.z < camera.ViewportToWorldPoint(new Vector3(0, 0, 0)).z)
+            //Destroy(gameObject);
     }
 }

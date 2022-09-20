@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7812691726516055956}
   - component: {fileID: 7427654175642434510}
   - component: {fileID: 284521032523509370}
-  - component: {fileID: 7476532380776722155}
+  - component: {fileID: 990004280948390808}
   m_Layer: 0
   m_Name: EnemyModel
   m_TagString: Untagged
@@ -80,19 +80,18 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &7476532380776722155
-BoxCollider:
+--- !u!114 &990004280948390808
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2181007070317416498}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fed50e910c2c734ba22b148032de421, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3079095947131872553
 GameObject:
   m_ObjectHideFlags: 0
@@ -102,8 +101,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 698769854643254047}
-  - component: {fileID: 8547865532685854521}
   - component: {fileID: 5341106348037300859}
+  - component: {fileID: 8547865532685854521}
   - component: {fileID: 1957435934}
   m_Layer: 0
   m_Name: Enemy
@@ -128,18 +127,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8547865532685854521
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3079095947131872553}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be7b7f44541ab7649bae22051ade00e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &5341106348037300859
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -153,6 +140,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8547865532685854521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3079095947131872553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be7b7f44541ab7649bae22051ade00e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1957435934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,7 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73124946e3c58f64496c65803dcb44c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 4
+  _speed: 8
 --- !u!1 &5457375221896898022
 GameObject:
   m_ObjectHideFlags: 0

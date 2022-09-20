@@ -10,7 +10,7 @@ public class WeaponPickup : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other.GetComponent<PlayerShooting>().SetWeapon(weapon);
+            other.GetComponent<PlayerShoot>().SetWeapon(weapon);
         }
     }
 }

@@ -5,7 +5,7 @@ public class LinePattern : MonoBehaviour, IShootPattern
 {
     IEnumerator Shooting()
     {
-        Weapon weapon = transform.parent.GetComponent<PlayerShooting>().GetWeapon();
+        Weapon weapon = transform.parent.GetComponent<PlayerShoot>().GetWeapon();
         GameObject _projectilePrefab = weapon.GetProjectile;
         
         while (true)

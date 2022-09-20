@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class PlayerShooting : MonoBehaviour
+public class PlayerShoot : MonoBehaviour
 {
     [SerializeField] Weapon _defaultWeapon;
     [SerializeField] Transform _spawnPoint;

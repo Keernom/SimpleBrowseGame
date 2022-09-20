@@ -6,7 +6,7 @@ public class DoubleShotPattern : MonoBehaviour, IShootPattern
 {
     IEnumerator Shooting()
     {
-        Weapon weapon = transform.parent.GetComponent<PlayerShooting>().GetWeapon();
+        Weapon weapon = transform.parent.GetComponent<PlayerShoot>().GetWeapon();
         GameObject _projectilePrefab = weapon.GetProjectile;
         
         while (true)
@@ -17,7 +17,6 @@ public class DoubleShotPattern : MonoBehaviour, IShootPattern
                 position.z += 2;
                 var a = Instantiate(_projectilePrefab, position, Quaternion.identity);
                 a.GetComponent<Projectile>().SetStats(weapon.GetSpeed, weapon.GetDamage);
-                print(weapon.GetDamage);
             }
             
             yield return new WaitForSeconds(weapon.GetFireRate);
@@ -27,7 +26,6 @@ public class DoubleShotPattern : MonoBehaviour, IShootPattern
     public void Shoot()
     {
         StartCoroutine(Shooting());
-
     }
 
     public void StopShoot()
