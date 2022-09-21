@@ -19,7 +19,7 @@ public class Projectile : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         var enemyhp = other.gameObject.GetComponent<EnemyHP>();
-
+        
         if (enemyhp != null)
         {
             enemyhp.ApplyDamage(_projectileDamage);
