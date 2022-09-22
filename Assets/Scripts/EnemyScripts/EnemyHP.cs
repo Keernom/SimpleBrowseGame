@@ -10,11 +10,13 @@ public class EnemyHP : MonoBehaviour
 
     public UnityAction OnHit;
 
+    ScoreCounter _scoreCounter;
     ColorController _colorController;
     Material _material;
 
     private void Start()
     {
+        _scoreCounter = FindObjectOfType<ScoreCounter>();
         _colorController = FindObjectOfType<ColorController>();
         float hitPoints = Random.Range(_colorController._maxHP/2.5f, _colorController._maxHP);
         _health = Mathf.RoundToInt(hitPoints);
@@ -26,6 +28,8 @@ public class EnemyHP : MonoBehaviour
     public void ApplyDamage(int damage)
     {
         _health -= damage;
+
+        _scoreCounter.ScoreUpdate(damage);
 
         _material.SetColor("_Color", _colorController.GetColor(_health));
 

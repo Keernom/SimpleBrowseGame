@@ -938,6 +938,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scoreMultiplier: 10
+  _fontSizeMultiplier: 50
+  _timeToDefault: 1
 --- !u!1 &1968713233
 GameObject:
   m_ObjectHideFlags: 0
