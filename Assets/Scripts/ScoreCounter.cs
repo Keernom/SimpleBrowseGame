@@ -12,6 +12,7 @@ public class ScoreCounter : MonoBehaviour
     TextMeshProUGUI _text;
 
     float _scores;
+    public float Scores { get { return _scores; } }
     float _startFontSize;
     float _finalFontSize;
 
