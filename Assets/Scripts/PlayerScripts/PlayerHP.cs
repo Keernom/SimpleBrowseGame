@@ -7,7 +7,6 @@ public class PlayerHP : MonoBehaviour
 {
     [SerializeField] SpriteRenderer _hitBar;
     [SerializeField] int _maxHealth = 1;
-
     
     ColorController _colorController;
 
