@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoubleShotPattern : MonoBehaviour, IShootPattern
+public class DoubleShotPattern : MonoBehaviour, IShootable
 {
     IEnumerator Shooting()
     {

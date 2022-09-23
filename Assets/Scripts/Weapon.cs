@@ -27,12 +27,12 @@ public class Weapon : ScriptableObject
 
     public void Shoot()
     {
-        weapon.GetComponent<IShootPattern>().Shoot();
+        weapon.GetComponent<IShootable>().Shoot();
     }
 
     public void DestroyWeapon()
     {
-        weapon.GetComponent<IShootPattern>().StopShoot();
+        weapon.GetComponent<IShootable>().StopShoot();
         Destroy(weapon);
     }
 

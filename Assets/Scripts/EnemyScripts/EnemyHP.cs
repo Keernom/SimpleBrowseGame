@@ -5,8 +5,8 @@ public class EnemyHP : MonoBehaviour
 {
     [SerializeField] ParticleSystem _explosion;
 
-    int _health = -1;
-    public int Health { get { return _health; } }
+    float _health = -1;
+    public int Health { get { return Mathf.RoundToInt(_health); } }
 
     public UnityAction OnHit;
 
@@ -22,7 +22,7 @@ public class EnemyHP : MonoBehaviour
         _health = Mathf.RoundToInt(hitPoints);
 
         _material = transform.GetChild(0).GetComponent<Renderer>().material;
-        _material.SetColor("_Color", _colorController.GetColor(_health));
+        _material.SetColor("_Color", _colorController.GetColorByHealthPercent(_health / _colorController._maxHP));
     }
 
     public void ApplyDamage(int damage)
@@ -31,7 +31,7 @@ public class EnemyHP : MonoBehaviour
 
         _scoreCounter.ScoreUpdate(damage);
 
-        _material.SetColor("_Color", _colorController.GetColor(_health));
+        _material.SetColor("_Color", _colorController.GetColorByHealthPercent(_health / _colorController._maxHP));
 
         if (_health <= 0)
         {

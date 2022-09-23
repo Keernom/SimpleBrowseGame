@@ -1,4 +1,4 @@
-﻿public interface IShootPattern
+﻿public interface IShootable
 {
     void Shoot();
 

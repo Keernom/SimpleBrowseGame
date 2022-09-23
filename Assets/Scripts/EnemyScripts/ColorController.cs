@@ -7,10 +7,10 @@ public class ColorController : MonoBehaviour
 
     [SerializeField] List<Color> _colorList;
 
-    Dictionary<int, Color> _colorDict = new Dictionary<int, Color>();
-    [SerializeField]List<int> _keyList = new List<int>();
+    Dictionary<float, Color> _colorDict = new Dictionary<float, Color>();
+    [SerializeField]List<float> _keyList = new List<float>();
 
-    private void Start()
+    private void Awake()
     {
         SetDictionary();
     }
@@ -19,21 +19,22 @@ public class ColorController : MonoBehaviour
     {
         _colorDict.Clear();
 
-        _colorDict.Add(_maxHP, _colorList[0]);
-        _keyList.Add(_maxHP);
+        _colorDict.Add(1, _colorList[0]);
+        _keyList.Add(1);
 
         for (int i = 1; i < _colorList.Count; i++)
         {
-            _colorDict.Add(_maxHP / _colorList.Count * (_colorList.Count - i), _colorList[i]);
-            _keyList.Add(_maxHP / _colorList.Count * (_colorList.Count - i));
+            float hpInterval = _maxHP / _colorList.Count * (_colorList.Count - i);
+            _colorDict.Add(hpInterval / _maxHP, _colorList[i]);
+            _keyList.Add(hpInterval / _maxHP);
         }
     }
 
-    public Color GetColor(int health)
+    public Color GetColorByHealthPercent(float health)
     {
         for (int i = 0; i < _keyList.Count;i++)
         {
-            if (i == _keyList.Count-1)
+            if (i ==  _keyList.Count-1)
                 return _colorDict[_keyList[i]];
 
             if (health <= _keyList[i] && health > _keyList[i + 1])

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class LinePattern : MonoBehaviour, IShootPattern
+public class LinePattern : MonoBehaviour, IShootable
 {
     IEnumerator Shooting()
     {
