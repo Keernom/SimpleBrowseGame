@@ -2,23 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponPickup : MonoBehaviour
+public class WeaponPickup : Pickup
 {
     [SerializeField] Weapon weapon;
 
-    private void OnTriggerEnter(Collider other)
+    public override void GetBonus(GameObject player)
     {
-        if (other.CompareTag("Player"))
-        {
-            other.GetComponent<PlayerShoot>().SetWeapon(weapon);
+        player.GetComponent<PlayerShoot>().SetWeapon(weapon);
 
-            WeaponPickup[] go = FindObjectsOfType<WeaponPickup>();
-            int pickupsCount = go.Length;
-
-            for(int i = 0; i < pickupsCount; i++)
-            {
-                Destroy(go[i].gameObject);
-            }
-        }
+        _upgradeManger.DestroyAllPickups();
     }
 }

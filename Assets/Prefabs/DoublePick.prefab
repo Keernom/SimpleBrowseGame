@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1556748825291215014}
   m_Layer: 0
   m_Name: DoublePick
-  m_TagString: Untagged
+  m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,6 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86d7bf4020fa664e8ae2e728f7efe58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _lifeTime: 3
   weapon: {fileID: 11400000, guid: d3dff57759eeee9409e359b7a7620fe7, type: 2}
 --- !u!54 &1556748825291215014
 Rigidbody:

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4561410879432053834}
   - component: {fileID: 8769790338159876000}
   - component: {fileID: 6521946541289191238}
-  - component: {fileID: 7064226781109027241}
   - component: {fileID: 180825298212607730}
   m_Layer: 0
   m_Name: SingleGun
@@ -81,19 +80,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &7064226781109027241
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 547871782352439259}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &180825298212607730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,5 +92,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6b32137e5b73454ba9ab8a2681aa58a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _projectilePrefab: {fileID: 5939479244645142046, guid: c2f4422c54c9ed04da5220bdb884ae3c,
-    type: 3}

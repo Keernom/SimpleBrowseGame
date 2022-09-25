@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class UpgradeManager : MonoBehaviour
 {
+    [SerializeField] List<Pickup> _pickupsList;
     [SerializeField] float _firstPickupScores;
     [SerializeField] float _pickupsSpawnCount;
-    [SerializeField] List<GameObject> _pickupsList;
+    [SerializeField] float _pickupLifeTime;
+
+    public float PickUpLifeTime { get { return _pickupLifeTime; } }
 
     ScoreCounter _scoreCounter;
 
@@ -14,7 +17,6 @@ public class UpgradeManager : MonoBehaviour
 
     float _currentPickupScores;
 
-    float _spawnOffset;
     float _pickupScaleX;
     float _firstElementPos;
 
@@ -23,7 +25,7 @@ public class UpgradeManager : MonoBehaviour
         _scoreCounter = FindObjectOfType<ScoreCounter>();
         _currentPickupScores = _firstPickupScores;
         _pickupScaleX = _pickupsList[1].transform.localScale.x;
-        _spawnOffset = _pickupScaleX / 2;
+        float _spawnOffset = _pickupScaleX / 2;
         _firstElementPos = -_pickupsSpawnCount * _pickupScaleX / 2 + _spawnOffset;
 
         _spawnPos = new Vector3(_firstElementPos, 0, 0);
@@ -44,6 +46,17 @@ public class UpgradeManager : MonoBehaviour
 
             _spawnPos.x = _firstElementPos;
             _currentPickupScores *= 1.5f;
+        }
+    }
+
+    public void DestroyAllPickups()
+    {
+        Pickup[] go = FindObjectsOfType<Pickup>();
+        int pickupsCount = go.Length;
+
+        for (int i = 0; i < pickupsCount; i++)
+        {
+            Destroy(go[i].gameObject);
         }
     }
 }

@@ -167,7 +167,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &558346878
 Transform:
   m_ObjectHideFlags: 0
@@ -194,11 +194,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7baccdfecd90d124b96c6415765d4c39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _firstPickupScores: 1000
-  _pickupsSpawnCount: 4
   _pickupsList:
-  - {fileID: 5461604820258188503, guid: c36249dccde3c394ebdfafd897fa001a, type: 3}
-  - {fileID: 1556748825291215008, guid: 6d78dc7c842026844bc4b9ad37c62caf, type: 3}
+  - {fileID: 5461604820258188524, guid: c36249dccde3c394ebdfafd897fa001a, type: 3}
+  - {fileID: 1556748825291215015, guid: 6d78dc7c842026844bc4b9ad37c62caf, type: 3}
+  _firstPickupScores: 500
+  _pickupsSpawnCount: 4
+  _pickupLifeTime: 2
 --- !u!1 &560810189
 GameObject:
   m_ObjectHideFlags: 0
@@ -488,6 +489,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1061701359 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7829957886310194004, guid: 266059f430cf91e4da581bbdf5217705,
+    type: 3}
+  m_PrefabInstance: {fileID: 7829957886017356579}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1061701365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1061701359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bed3f86539194044fbe128eb62c65404, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1112209582
 GameObject:
   m_ObjectHideFlags: 0

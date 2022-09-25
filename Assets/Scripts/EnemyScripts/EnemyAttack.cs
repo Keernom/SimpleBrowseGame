@@ -34,7 +34,7 @@ public class EnemyAttack : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             other.gameObject.GetComponent<PlayerHP>().ApplyDamage(_currentDamage);
-            Destroy(gameObject);
+            _enemyHP.EnemyDeath();
         }
     }
 }

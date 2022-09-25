@@ -4,6 +4,7 @@ using UnityEngine.Events;
 public class EnemyHP : MonoBehaviour
 {
     [SerializeField] ParticleSystem _explosion;
+    [SerializeField] Renderer _renderer;
 
     float _health = -1;
     public int Health { get { return Mathf.RoundToInt(_health); } }
@@ -21,7 +22,7 @@ public class EnemyHP : MonoBehaviour
         float hitPoints = Random.Range(_colorController._maxHP/2.5f, _colorController._maxHP);
         _health = Mathf.RoundToInt(hitPoints);
 
-        _material = transform.GetChild(0).GetComponent<Renderer>().material;
+        _material = _renderer.material;
         _material.SetColor("_Color", _colorController.GetColorByHealthPercent(_health / _colorController._maxHP));
     }
 
@@ -35,10 +36,15 @@ public class EnemyHP : MonoBehaviour
 
         if (_health <= 0)
         {
-            var explosion = Instantiate(_explosion, transform.position, Quaternion.identity);
-            Destroy(gameObject);
+            EnemyDeath();
         }
 
         OnHit?.Invoke();
+    }
+
+    public void EnemyDeath()
+    {
+        var explosion = Instantiate(_explosion, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 }

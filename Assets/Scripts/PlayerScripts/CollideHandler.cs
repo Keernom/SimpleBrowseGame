@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class CollideHandler : MonoBehaviour
 {
-    [SerializeField] Transform _spawnPoint;
-
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Weapon"))
+        if (other.gameObject.CompareTag("Pickup"))
         {
-            
+            other.gameObject.GetComponent<Pickup>().GetBonus(gameObject);
         }
     }
 }
