@@ -22,7 +22,6 @@ public class Weapon : ScriptableObject
     public void Spawn(Transform spawnPoint)
     {
         weapon = Instantiate(_weaponPrefab, spawnPoint);
-        
     }
 
     public void Shoot()

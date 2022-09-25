@@ -6,11 +6,11 @@ using UnityEngine;
 public class PlayerHP : MonoBehaviour
 {
     [SerializeField] SpriteRenderer _hitBar;
-    [SerializeField] int _maxHealth = 1;
+    [SerializeField] float _maxHealth = 1;
     
     ColorController _colorController;
 
-    float _currentHealth;
+    [SerializeField] float _currentHealth;
 
     Vector3 _startScale;
 
@@ -46,5 +46,15 @@ public class PlayerHP : MonoBehaviour
 
         Vector3 newScale = new Vector3(1 - _currentHealth / _maxHealth * _startScale.x, _startScale.y, _startScale.z);
         _hitBar.gameObject.transform.localScale = newScale;
+    }
+
+    public void MaxHpUpdate(float percentBonus)
+    {
+        float hpPart = _currentHealth / _maxHealth;
+
+        float multiplier = percentBonus / 100;
+        _maxHealth += _maxHealth * multiplier;
+
+        _currentHealth = Mathf.RoundToInt(_maxHealth * hpPart);
     }
 }

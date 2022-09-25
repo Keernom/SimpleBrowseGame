@@ -2,7 +2,7 @@
 
 public abstract class Pickup : MonoBehaviour
 {
-    public UpgradeManager _upgradeManger;
+    UpgradeManager _upgradeManger;
 
     public abstract void GetBonus(GameObject player);
 
@@ -10,5 +10,10 @@ public abstract class Pickup : MonoBehaviour
     {
         _upgradeManger = FindObjectOfType<UpgradeManager>();
         Destroy(gameObject, _upgradeManger.PickUpLifeTime);
+    }
+
+    public UpgradeManager GetManager()
+    {
+        return _upgradeManger;
     }
 }

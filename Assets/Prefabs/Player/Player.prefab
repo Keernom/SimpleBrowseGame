@@ -173,6 +173,7 @@ GameObject:
   - component: {fileID: 7829957886310194010}
   - component: {fileID: 7829957886310194011}
   - component: {fileID: 1507053901}
+  - component: {fileID: 1061701365}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -223,7 +224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45555ad1e809eee419db43f1b95322e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _defaultWeapon: {fileID: 11400000, guid: d3dff57759eeee9409e359b7a7620fe7, type: 2}
+  _defaultWeapon: {fileID: 11400000, guid: 9d00c774a64fd9e479f3bab2c48e9107, type: 2}
   _spawnPoint: {fileID: 7829957886310194008}
 --- !u!65 &7829957886310194011
 BoxCollider:
@@ -251,8 +252,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hitBar: {fileID: 8686082886676932739}
-  _text: {fileID: 0}
   _maxHealth: 1000
+  _currentHealth: 0
+--- !u!114 &1061701365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7829957886310194004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bed3f86539194044fbe128eb62c65404, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8818797833228199124
 GameObject:
   m_ObjectHideFlags: 0

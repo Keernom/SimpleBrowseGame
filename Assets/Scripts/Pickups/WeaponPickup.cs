@@ -10,6 +10,6 @@ public class WeaponPickup : Pickup
     {
         player.GetComponent<PlayerShoot>().SetWeapon(weapon);
 
-        _upgradeManger.DestroyAllPickups();
+        GetManager().DestroyAllPickups();
     }
 }
