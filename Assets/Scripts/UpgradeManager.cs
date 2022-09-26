@@ -11,6 +11,7 @@ public class UpgradeManager : MonoBehaviour
 
     public float PickUpLifeTime { get { return _pickupLifeTime; } }
 
+    Dictionary<Stats, float> _weaponUpgradeDict = new Dictionary<Stats, float>();
     ScoreCounter _scoreCounter;
 
     Vector3 _spawnPos;
@@ -23,10 +24,16 @@ public class UpgradeManager : MonoBehaviour
     private void Start()
     {
         _scoreCounter = FindObjectOfType<ScoreCounter>();
+
         _currentPickupScores = _firstPickupScores;
         _pickupScaleX = _pickupsList[1].transform.localScale.x;
         float _spawnOffset = _pickupScaleX / 2;
         _firstElementPos = -_pickupsSpawnCount * _pickupScaleX / 2 + _spawnOffset;
+
+        _weaponUpgradeDict.Add(Stats.Damage, 0);
+        _weaponUpgradeDict.Add(Stats.FireRate, 0);
+        _weaponUpgradeDict.Add(Stats.ProjectileSpeed, 0);
+
 
         _spawnPos = new Vector3(_firstElementPos, 0, 0);
     }
@@ -57,6 +64,21 @@ public class UpgradeManager : MonoBehaviour
         for (int i = 0; i < pickupsCount; i++)
         {
             Destroy(go[i].gameObject);
+        }
+    }
+
+    public void AddInfoToUpgrade(Stats stat, float value)
+    {
+        _weaponUpgradeDict[stat] += value;
+    }
+
+    public void ApplyAllUpgrades()
+    {
+        Weapon weapon = FindObjectOfType<PlayerShoot>().GetWeapon();
+        
+        foreach (var a in _weaponUpgradeDict.Keys)
+        {
+            weapon.UpdateStat(a, _weaponUpgradeDict[a]);
         }
     }
 }

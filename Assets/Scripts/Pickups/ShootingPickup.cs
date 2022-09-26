@@ -13,6 +13,7 @@ public class ShootingPickup : Pickup
     {
         _weapon = player.GetComponent<PlayerShoot>().GetWeapon();
         _weapon.UpdateStat(_statToUpgrade, _upgradeValue);
+        GetManager().AddInfoToUpgrade(_statToUpgrade, _upgradeValue);
         GetManager().DestroyAllPickups();
     }
 }

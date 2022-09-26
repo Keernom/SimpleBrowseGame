@@ -198,6 +198,7 @@ MonoBehaviour:
   - {fileID: 5461604820258188524, guid: c36249dccde3c394ebdfafd897fa001a, type: 3}
   - {fileID: 1556748825291215015, guid: 6d78dc7c842026844bc4b9ad37c62caf, type: 3}
   - {fileID: 4670920713141759361, guid: 9f15b862694500f42b4de0e8fef23fbb, type: 3}
+  - {fileID: 2466239726746426257, guid: d9d43fec8bf80684383fb9d3d75d8424, type: 3}
   _firstPickupScores: 500
   _pickupsSpawnCount: 4
   _pickupLifeTime: 2
