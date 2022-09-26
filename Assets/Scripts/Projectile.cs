@@ -3,9 +3,9 @@
 public class Projectile : MonoBehaviour
 {
     float _speed;
-    int _projectileDamage;
+    float _projectileDamage;
 
-    public void SetStats(float speed, int damage)
+    public void SetStats(float speed, float damage)
     {
         _speed = speed;
         _projectileDamage = damage;

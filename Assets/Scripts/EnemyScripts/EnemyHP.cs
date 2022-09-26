@@ -26,7 +26,7 @@ public class EnemyHP : MonoBehaviour
         _material.SetColor("_Color", _colorController.GetColorByHealthPercent(_health / _colorController._maxHP));
     }
 
-    public void ApplyDamage(int damage)
+    public void ApplyDamage(float damage)
     {
         _health -= damage;
 

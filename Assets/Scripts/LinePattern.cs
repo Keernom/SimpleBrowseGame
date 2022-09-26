@@ -10,6 +10,7 @@ public class LinePattern : MonoBehaviour, IShootable
         
         while (true)
         {
+            print(this + " " + weapon.GetDamage);
             var a = Instantiate(_projectilePrefab, transform.position, Quaternion.identity);
             a.GetComponent<Projectile>().SetStats(weapon.GetSpeed, weapon.GetDamage);
             yield return new WaitForSeconds(weapon.GetFireRate);

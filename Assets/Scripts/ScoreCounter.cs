@@ -24,7 +24,7 @@ public class ScoreCounter : MonoBehaviour
         _finalFontSize = _startFontSize * _fontSizeMultiplier;
     }
 
-    public void ScoreUpdate(int scoreToPlus)
+    public void ScoreUpdate(float scoreToPlus)
     {
         StopCoroutine(nameof(ChangeTextsize));
 

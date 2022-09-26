@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class ShootingPickup : Pickup
 {
+    [SerializeField] Stats _statToUpgrade;
+    [SerializeField] float _upgradeValue;
+
     Weapon _weapon;
 
     public override void GetBonus(GameObject player)
     {
         _weapon = player.GetComponent<PlayerShoot>().GetWeapon();
+        _weapon.UpdateStat(_statToUpgrade, _upgradeValue);
+        GetManager().DestroyAllPickups();
     }
 }

@@ -11,6 +11,7 @@ public class DoubleShotPattern : MonoBehaviour, IShootable
         
         while (true)
         {
+            print(this + " " + weapon.GetDamage);
             for (int i = 0; i < 2; i++)
             {
                 Vector3 position = transform.GetChild(i).position;
