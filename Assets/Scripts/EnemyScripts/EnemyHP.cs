@@ -28,15 +28,18 @@ public class EnemyHP : MonoBehaviour
 
     public void ApplyDamage(float damage)
     {
+        print(_health);
         _health -= damage;
-
-        _scoreCounter.ScoreUpdate(damage);
-
-        _material.SetColor("_Color", _colorController.GetColorByHealthPercent(_health / _colorController._maxHP));
 
         if (_health <= 0)
         {
+            _scoreCounter.ScoreUpdate(damage + _health);
             EnemyDeath();
+        }
+        else
+        {
+            _scoreCounter.ScoreUpdate(damage);
+            _material.SetColor("_Color", _colorController.GetColorByHealthPercent(_health / _colorController._maxHP));
         }
 
         OnHit?.Invoke();

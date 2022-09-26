@@ -15,6 +15,7 @@ public class Weapon : ScriptableObject
 
     private GameObject weapon;
     private Dictionary<Stats, float> _statsDict = new Dictionary<Stats, float>();
+    private Dictionary<Stats, float> _defaultStatsDict = new Dictionary<Stats, float>();
 
     public GameObject GetProjectile { get { return _projectilePrefab; } }
 
@@ -30,6 +31,10 @@ public class Weapon : ScriptableObject
 
     private void StatsDictionarySetup()
     {
+        _defaultStatsDict.Add(Stats.Damage, _weaponDamage);
+        _defaultStatsDict.Add(Stats.FireRate, _fireRate);
+        _defaultStatsDict.Add(Stats.ProjectileSpeed, _projectileSpeed);
+
         _statsDict.Add(Stats.Damage, _weaponDamage);
         _statsDict.Add(Stats.FireRate, _fireRate);
         _statsDict.Add(Stats.ProjectileSpeed, _projectileSpeed);
@@ -47,8 +52,8 @@ public class Weapon : ScriptableObject
         Destroy(weapon);
     }
 
-    public void UpdateStat(Stats stat, float value)
+    public void UpdateStat(Stats stat, float valueInPercent)
     {
-        _statsDict[stat] += value;
+        _statsDict[stat] += _defaultStatsDict[stat] * valueInPercent;
     }
 }

@@ -12,8 +12,8 @@ public class ShootingPickup : Pickup
     public override void GetBonus(GameObject player)
     {
         _weapon = player.GetComponent<PlayerShoot>().GetWeapon();
-        _weapon.UpdateStat(_statToUpgrade, _upgradeValue);
-        GetManager().AddInfoToUpgrade(_statToUpgrade, _upgradeValue);
+        _weapon.UpdateStat(_statToUpgrade, _upgradeValue / 100);
+        GetManager().AddInfoToUpgrade(_statToUpgrade, _upgradeValue / 100);
         GetManager().DestroyAllPickups();
     }
 }
