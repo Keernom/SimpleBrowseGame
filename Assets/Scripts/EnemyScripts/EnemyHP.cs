@@ -7,7 +7,7 @@ public class EnemyHP : MonoBehaviour
     [SerializeField] Renderer _renderer;
 
     float _health = -1;
-    public int Health { get { return Mathf.RoundToInt(_health); } }
+    public int Health { get { return Mathf.CeilToInt(_health); } }
 
     public UnityAction OnHit;
 
@@ -19,9 +19,9 @@ public class EnemyHP : MonoBehaviour
     {
         _scoreCounter = FindObjectOfType<ScoreCounter>();
         _colorController = FindObjectOfType<ColorController>();
-        int maxHpValue = Mathf.RoundToInt(_colorController._maxHP);
+        int maxHpValue = Mathf.CeilToInt(_colorController._maxHP);
         float hitPoints = Random.Range(maxHpValue / 2.5f, maxHpValue);
-        _health = Mathf.RoundToInt(hitPoints);
+        _health = Mathf.CeilToInt(hitPoints);
 
         _material = _renderer.material;
         _material.SetColor("_Color", _colorController.GetColorByHealthPercent(_health / _colorController._maxHP));

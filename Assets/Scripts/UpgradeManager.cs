@@ -5,35 +5,31 @@ using UnityEngine;
 public class UpgradeManager : MonoBehaviour
 {
     [SerializeField] List<Pickup> _pickupsList;
-    [SerializeField] float _firstPickupScores;
-    [SerializeField] float _pickupsSpawnCount;
     [SerializeField] float _pickupLifeTime;
 
     public float PickUpLifeTime { get { return _pickupLifeTime; } }
 
     Dictionary<Stats, float> _weaponUpgradeDict = new Dictionary<Stats, float>();
-    ScoreCounter _scoreCounter;
 
     Vector3 _spawnPos;
 
+    float _pickupsSpawnCount = 3;
     float _pickupScaleX;
     float _firstElementPos;
 
     private void Start()
     {
-        _scoreCounter = FindObjectOfType<ScoreCounter>();
-
-        _pickupScaleX = _pickupsList[1].transform.localScale.x;
+        _pickupScaleX = _pickupsList[1].transform.localScale.x * 3;
         float _spawnOffset = _pickupScaleX / 2;
-        _firstElementPos = -_pickupsSpawnCount * _pickupScaleX / 2 + _spawnOffset;
+        _firstElementPos = -_pickupsSpawnCount * _pickupScaleX/ 2 + _spawnOffset;
 
         _weaponUpgradeDict.Add(Stats.Damage, 0);
         _weaponUpgradeDict.Add(Stats.FireRate, 0);
         _weaponUpgradeDict.Add(Stats.ProjectileSpeed, 0);
 
-        _spawnPos = new Vector3(_firstElementPos, 0, 0);
+        _spawnPos = new Vector3(_firstElementPos, 0, 25);
 
-        _scoreCounter.onScoreEvent += PickupSpawn;
+        ScoreCounter.onScoreEvent += PickupSpawn;
     }
 
     void PickupSpawn()
@@ -54,7 +50,8 @@ public class UpgradeManager : MonoBehaviour
                     Instantiate(_pickupsList[itemIndex], _spawnPos, Quaternion.identity);
                 }   
             }
-            _spawnPos.x += _pickupScaleX + 1;
+
+            _spawnPos.x += _pickupScaleX;
         }
         spawnedPickups.Clear();
         _spawnPos.x = _firstElementPos;
@@ -65,9 +62,14 @@ public class UpgradeManager : MonoBehaviour
         Pickup[] go = FindObjectsOfType<Pickup>();
         int pickupsCount = go.Length;
 
-        for (int i = 0; i < pickupsCount; i++)
+        if (pickupsCount > 0)
         {
-            Destroy(go[i].gameObject);
+            for (int i = 0; i < pickupsCount; i++)
+            {
+                Destroy(go[i].gameObject);
+            }
+
+            FindObjectOfType<EnemySpawn>().StartSpawn();
         }
     }
 

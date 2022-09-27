@@ -23,15 +23,29 @@ public class EnemySpawn : MonoBehaviour
         firstElementPosition = -_enemyScaleX * _enemyCount / 2 + _spawnOffset;
         _spawnPos = new Vector3(firstElementPosition, 0, 20);
 
-        SetSpawnpointDictionary();
+        ScoreCounter.onScoreEvent += StopSpawn;
 
+        SetSpawnpointDictionary();
+        StartSpawn();
+    }
+
+    public void StartSpawn()
+    {
+        print("spwn");
         StartCoroutine(Spawn());
+    }
+
+    public void StopSpawn()
+    {
+        print("stop");
+        StopAllCoroutines();
     }
 
     IEnumerator Spawn()
     {
         while(true)
         {
+            print("enemys");
             List<int> isSpawned = new List<int>();
 
             int enemyCount = Random.Range(1, _enemyCount);

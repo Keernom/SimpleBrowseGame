@@ -201,8 +201,7 @@ MonoBehaviour:
   - {fileID: 2466239726746426257, guid: d9d43fec8bf80684383fb9d3d75d8424, type: 3}
   - {fileID: 8646818223802655278, guid: 40845bda17c722b4e899f191dfec3e03, type: 3}
   - {fileID: 5983361413548544584, guid: 8bdb77a0c5f078d42b0ff17a6ccf579b, type: 3}
-  _firstPickupScores: 500
-  _pickupsSpawnCount: 4
+  _pickupsSpawnCount: 3
   _pickupLifeTime: 3
 --- !u!1 &560810189
 GameObject:
@@ -621,7 +620,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bc555a2c00601546b52a854e2146840, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHP: 30
+  _maxHP: 20
   _hpMultiplier: 0.5
   _colorList:
   - {r: 0.77254903, g: 0.011764725, b: 0.018991107, a: 0}
@@ -838,7 +837,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fontSizeMultiplier: 50
   _timeToDefault: 1
-  _eventScores: 200
+  _eventScores: 100
 --- !u!1 &2081887246
 GameObject:
   m_ObjectHideFlags: 0

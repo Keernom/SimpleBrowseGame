@@ -11,7 +11,7 @@ public class ScoreCounter : MonoBehaviour
     [SerializeField]float _eventScores;
 
     TextMeshProUGUI _text;
-    public UnityAction onScoreEvent;
+    public static UnityAction onScoreEvent;
     float _scores;
     
     public float Scores { get { return _scores; } }
@@ -38,7 +38,7 @@ public class ScoreCounter : MonoBehaviour
         if (_scores >= _eventScores)
         {
             onScoreEvent?.Invoke();
-            _eventScores *= 2;
+            _eventScores *= 1.5f;
         }
             
 

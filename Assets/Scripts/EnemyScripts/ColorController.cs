@@ -10,13 +10,11 @@ public class ColorController : MonoBehaviour
 
     Dictionary<float, Color> _colorDict = new Dictionary<float, Color>();
     List<float> _keyList = new List<float>();
-    ScoreCounter _scoreCounter;
 
     private void Awake()
     {
         SetDictionary();
-        _scoreCounter = FindObjectOfType<ScoreCounter>();
-        _scoreCounter.onScoreEvent += MaxHpUpdate;
+        ScoreCounter.onScoreEvent += MaxHpUpdate;
     }
 
     void SetDictionary()
@@ -50,7 +48,6 @@ public class ColorController : MonoBehaviour
 
     void MaxHpUpdate()
     {
-        print(_maxHP * _hpMultiplier);
         _maxHP += _maxHP * _hpMultiplier;
     }
 }
