@@ -16,8 +16,6 @@ public class UpgradeManager : MonoBehaviour
 
     Vector3 _spawnPos;
 
-    float _currentPickupScores;
-
     float _pickupScaleX;
     float _firstElementPos;
 
@@ -25,7 +23,6 @@ public class UpgradeManager : MonoBehaviour
     {
         _scoreCounter = FindObjectOfType<ScoreCounter>();
 
-        _currentPickupScores = _firstPickupScores;
         _pickupScaleX = _pickupsList[1].transform.localScale.x;
         float _spawnOffset = _pickupScaleX / 2;
         _firstElementPos = -_pickupsSpawnCount * _pickupScaleX / 2 + _spawnOffset;
@@ -34,26 +31,33 @@ public class UpgradeManager : MonoBehaviour
         _weaponUpgradeDict.Add(Stats.FireRate, 0);
         _weaponUpgradeDict.Add(Stats.ProjectileSpeed, 0);
 
-
         _spawnPos = new Vector3(_firstElementPos, 0, 0);
+
+        _scoreCounter.onScoreEvent += PickupSpawn;
     }
 
-    private void Update()
+    void PickupSpawn()
     {
-        if (_scoreCounter.Scores >= _currentPickupScores)
+        List<int> spawnedPickups = new List<int>();
+
+        for (int i = 0; i < _pickupsSpawnCount; i++)
         {
-            for (int i = 0; i < _pickupsSpawnCount; i++)
+            bool isSpawned = false;
+
+            while(!isSpawned)
             {
-                int itemIndex = Mathf.FloorToInt(Random.Range(0,_pickupsList.Count));
-
-                Instantiate(_pickupsList[itemIndex], _spawnPos, Quaternion.identity);
-
-                _spawnPos.x += _pickupScaleX;
+                int itemIndex = Mathf.FloorToInt(Random.Range(0, _pickupsList.Count));
+                if (!spawnedPickups.Contains(itemIndex))
+                {
+                    isSpawned = true;
+                    spawnedPickups.Add(itemIndex);
+                    Instantiate(_pickupsList[itemIndex], _spawnPos, Quaternion.identity);
+                }   
             }
-
-            _spawnPos.x = _firstElementPos;
-            _currentPickupScores *= 1.5f;
+            _spawnPos.x += _pickupScaleX + 1;
         }
+        spawnedPickups.Clear();
+        _spawnPos.x = _firstElementPos;
     }
 
     public void DestroyAllPickups()

@@ -48,6 +48,7 @@ public class Weapon : ScriptableObject
     public void DestroyWeapon()
     {
         weapon.GetComponent<IShootable>().StopShoot();
+        _defaultStatsDict.Clear();
         _statsDict.Clear();
         Destroy(weapon);
     }

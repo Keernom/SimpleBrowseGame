@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Events;
 
 public class ScoreCounter : MonoBehaviour
 {
-    [SerializeField] float _scoreMultiplier;
     [SerializeField] float _fontSizeMultiplier;
     [SerializeField] float _timeToDefault;
+    [SerializeField]float _eventScores;
 
     TextMeshProUGUI _text;
-
+    public UnityAction onScoreEvent;
     float _scores;
+    
     public float Scores { get { return _scores; } }
+
     float _startFontSize;
     float _finalFontSize;
 
@@ -31,6 +34,13 @@ public class ScoreCounter : MonoBehaviour
         _scores += scoreToPlus;
         _text.text = Mathf.FloorToInt(_scores).ToString();
         _text.fontSize = _finalFontSize;
+
+        if (_scores >= _eventScores)
+        {
+            onScoreEvent?.Invoke();
+            _eventScores *= 2;
+        }
+            
 
         StartCoroutine(nameof(ChangeTextsize));
     }

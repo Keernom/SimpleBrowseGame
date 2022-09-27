@@ -3,16 +3,20 @@ using UnityEngine;
 
 public class ColorController : MonoBehaviour
 {
-    [SerializeField] public int _maxHP = 0;
+    [SerializeField] public float _maxHP = 0;
+    [SerializeField] float _hpMultiplier;
 
     [SerializeField] List<Color> _colorList;
 
     Dictionary<float, Color> _colorDict = new Dictionary<float, Color>();
-    [SerializeField]List<float> _keyList = new List<float>();
+    List<float> _keyList = new List<float>();
+    ScoreCounter _scoreCounter;
 
     private void Awake()
     {
         SetDictionary();
+        _scoreCounter = FindObjectOfType<ScoreCounter>();
+        _scoreCounter.onScoreEvent += MaxHpUpdate;
     }
 
     void SetDictionary()
@@ -42,5 +46,11 @@ public class ColorController : MonoBehaviour
         }
 
         return Color.black;
+    }
+
+    void MaxHpUpdate()
+    {
+        print(_maxHP * _hpMultiplier);
+        _maxHP += _maxHP * _hpMultiplier;
     }
 }

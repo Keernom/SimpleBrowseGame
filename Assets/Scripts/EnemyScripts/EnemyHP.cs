@@ -19,7 +19,8 @@ public class EnemyHP : MonoBehaviour
     {
         _scoreCounter = FindObjectOfType<ScoreCounter>();
         _colorController = FindObjectOfType<ColorController>();
-        float hitPoints = Random.Range(_colorController._maxHP/2.5f, _colorController._maxHP);
+        int maxHpValue = Mathf.RoundToInt(_colorController._maxHP);
+        float hitPoints = Random.Range(maxHpValue / 2.5f, maxHpValue);
         _health = Mathf.RoundToInt(hitPoints);
 
         _material = _renderer.material;
@@ -28,7 +29,6 @@ public class EnemyHP : MonoBehaviour
 
     public void ApplyDamage(float damage)
     {
-        print(_health);
         _health -= damage;
 
         if (_health <= 0)
