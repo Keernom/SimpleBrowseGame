@@ -30,6 +30,6 @@ public class DoubleShotPattern : MonoBehaviour, IShootable
 
     public void StopShoot()
     {
-        StopCoroutine(Shooting());
+        StopAllCoroutines();
     }
 }

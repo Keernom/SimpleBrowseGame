@@ -169,9 +169,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7829957886310194008}
+  - component: {fileID: 7829957886310194011}
   - component: {fileID: 7829957886310194009}
   - component: {fileID: 7829957886310194010}
-  - component: {fileID: 7829957886310194011}
   - component: {fileID: 1507053901}
   - component: {fileID: 1061701365}
   m_Layer: 0
@@ -197,6 +197,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7829957886310194011
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7829957886310194004}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5, y: 1, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7829957886310194009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,19 +239,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _defaultWeapon: {fileID: 11400000, guid: 9d00c774a64fd9e479f3bab2c48e9107, type: 2}
   _spawnPoint: {fileID: 7829957886310194008}
---- !u!65 &7829957886310194011
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7829957886310194004}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 5, y: 1, z: 2}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1507053901
 MonoBehaviour:
   m_ObjectHideFlags: 0

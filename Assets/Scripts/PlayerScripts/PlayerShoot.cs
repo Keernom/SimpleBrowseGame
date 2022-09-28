@@ -22,6 +22,7 @@ public class PlayerShoot : MonoBehaviour
         _currentWeapon.Spawn(_spawnPoint);
         FindObjectOfType<UpgradeManager>().ApplyAllUpgrades();
         _currentWeapon.Shoot();
+        
     }
 
     public Weapon GetWeapon()

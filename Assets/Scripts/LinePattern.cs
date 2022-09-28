@@ -23,6 +23,6 @@ public class LinePattern : MonoBehaviour, IShootable
 
     public void StopShoot()
     {
-        StopCoroutine(Shooting());
+        StopAllCoroutines();
     }
 }

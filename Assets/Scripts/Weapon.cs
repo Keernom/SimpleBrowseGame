@@ -45,6 +45,11 @@ public class Weapon : ScriptableObject
         weapon.GetComponent<IShootable>().Shoot();
     }
 
+    public void StopShoot()
+    {
+        weapon.GetComponent<IShootable>().StopShoot();
+    }
+
     public void DestroyWeapon()
     {
         weapon.GetComponent<IShootable>().StopShoot();

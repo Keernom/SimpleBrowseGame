@@ -21,7 +21,7 @@ public class EnemySpawn : MonoBehaviour
         _enemyScaleX = _enemyPrefab.transform.localScale.x;
         _spawnOffset = _enemyScaleX / 2;
         firstElementPosition = -_enemyScaleX * _enemyCount / 2 + _spawnOffset;
-        _spawnPos = new Vector3(firstElementPosition, 0, 20);
+        _spawnPos = new Vector3(firstElementPosition, 0, 25);
 
         ScoreCounter.onScoreEvent += StopSpawn;
 
@@ -31,13 +31,11 @@ public class EnemySpawn : MonoBehaviour
 
     public void StartSpawn()
     {
-        print("spwn");
         StartCoroutine(Spawn());
     }
 
     public void StopSpawn()
     {
-        print("stop");
         StopAllCoroutines();
     }
 
@@ -45,7 +43,6 @@ public class EnemySpawn : MonoBehaviour
     {
         while(true)
         {
-            print("enemys");
             List<int> isSpawned = new List<int>();
 
             int enemyCount = Random.Range(1, _enemyCount);

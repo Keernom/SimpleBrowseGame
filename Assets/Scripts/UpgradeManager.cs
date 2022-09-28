@@ -16,6 +16,7 @@ public class UpgradeManager : MonoBehaviour
     float _pickupsSpawnCount = 3;
     float _pickupScaleX;
     float _firstElementPos;
+    int _enemyCount;
 
     private void Start()
     {
@@ -29,11 +30,18 @@ public class UpgradeManager : MonoBehaviour
 
         _spawnPos = new Vector3(_firstElementPos, 0, 25);
 
-        ScoreCounter.onScoreEvent += PickupSpawn;
+        ScoreCounter.onScoreEvent += UpgradeInitialize;
+    }
+
+    void UpgradeInitialize()
+    {
+        StartCoroutine(CountEnemies());
     }
 
     void PickupSpawn()
     {
+        FindObjectOfType<PlayerShoot>().GetWeapon().StopShoot();
+
         List<int> spawnedPickups = new List<int>();
 
         for (int i = 0; i < _pickupsSpawnCount; i++)
@@ -69,6 +77,7 @@ public class UpgradeManager : MonoBehaviour
                 Destroy(go[i].gameObject);
             }
 
+            FindObjectOfType<PlayerShoot>().GetWeapon().Shoot();
             FindObjectOfType<EnemySpawn>().StartSpawn();
         }
     }
@@ -86,5 +95,18 @@ public class UpgradeManager : MonoBehaviour
         {
             weapon.UpdateStat(a, _weaponUpgradeDict[a]);
         }
+    }
+
+    IEnumerator CountEnemies()
+    {
+        _enemyCount = FindObjectsOfType<EnemyHP>().Length;
+
+        while (_enemyCount != 0)
+        {
+            _enemyCount = FindObjectsOfType<EnemyHP>().Length;
+            yield return new WaitForEndOfFrame();
+        }
+
+        PickupSpawn();
     }
 }
