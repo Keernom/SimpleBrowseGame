@@ -1,17 +1,28 @@
 ﻿using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public abstract class Pickup : MonoBehaviour
 {
-    float _speed = .4f;
+    [SerializeField] protected TextMeshPro text;
+
+    float _speed;
     UpgradeManager _upgradeManger;
 
     public abstract void GetBonus(GameObject player);
 
+    private void OnEnable()
+    {
+        int lastChildindex = transform.childCount - 1;
+        text = transform.GetChild(lastChildindex).GetComponent<TextMeshPro>();
+        _upgradeManger = FindObjectOfType<UpgradeManager>();
+        _speed = _upgradeManger.PickupSpeed;
+        StartCoroutine(MoveToCenter());
+    }
+
     private void Start()
     {
-        _upgradeManger = FindObjectOfType<UpgradeManager>();
-        StartCoroutine(MoveToCenter());
+        
     }
 
     public UpgradeManager GetManager()

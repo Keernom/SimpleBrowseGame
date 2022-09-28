@@ -6,8 +6,10 @@ public class UpgradeManager : MonoBehaviour
 {
     [SerializeField] List<Pickup> _pickupsList;
     [SerializeField] float _pickupLifeTime;
+    [SerializeField] float _pickupSpeed;
 
-    public float PickUpLifeTime { get { return _pickupLifeTime; } }
+    public float PickupLifeTime { get { return _pickupLifeTime; } }
+    public float PickupSpeed { get { return _pickupSpeed; } }
 
     Dictionary<Stats, float> _weaponUpgradeDict = new Dictionary<Stats, float>();
 

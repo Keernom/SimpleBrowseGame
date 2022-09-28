@@ -1,19 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &8079210225137843833
+--- !u!114 &6715367449308268435
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7623923681145982999}
+  m_GameObject: {fileID: 2701431034206562115}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db4f28ded626a574e8b1f10855131a13, type: 3}
+  m_Script: {fileID: 11500000, guid: c86d7bf4020fa664e8ae2e728f7efe58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hpBooster: 0
---- !u!1001 &8844412498516596461
+  weapon: {fileID: 11400000, guid: 9d00c774a64fd9e479f3bab2c48e9107, type: 2}
+--- !u!1001 &3894871822594171321
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -78,13 +78,13 @@ PrefabInstance:
     - target: {fileID: 1400677204655752954, guid: 0d6ff41d6cd642246ab60506f77bc51e,
         type: 3}
       propertyPath: m_Name
-      value: HpPickup
+      value: LinerPickup
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d6ff41d6cd642246ab60506f77bc51e, type: 3}
---- !u!1 &7623923681145982999 stripped
+--- !u!1 &2701431034206562115 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1400677204655752954, guid: 0d6ff41d6cd642246ab60506f77bc51e,
     type: 3}
-  m_PrefabInstance: {fileID: 8844412498516596461}
+  m_PrefabInstance: {fileID: 3894871822594171321}
   m_PrefabAsset: {fileID: 0}

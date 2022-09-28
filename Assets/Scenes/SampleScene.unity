@@ -195,14 +195,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pickupsList:
-  - {fileID: 5461604820258188524, guid: c36249dccde3c394ebdfafd897fa001a, type: 3}
-  - {fileID: 1556748825291215015, guid: 6d78dc7c842026844bc4b9ad37c62caf, type: 3}
-  - {fileID: 4670920713141759361, guid: 9f15b862694500f42b4de0e8fef23fbb, type: 3}
-  - {fileID: 2466239726746426257, guid: d9d43fec8bf80684383fb9d3d75d8424, type: 3}
-  - {fileID: 8646818223802655278, guid: 40845bda17c722b4e899f191dfec3e03, type: 3}
-  - {fileID: 5983361413548544584, guid: 8bdb77a0c5f078d42b0ff17a6ccf579b, type: 3}
-  _pickupsSpawnCount: 3
+  - {fileID: 8257640613241999040, guid: 23ec35a4f2672c34fb9ae3531f2e36b0, type: 3}
+  - {fileID: 5816946043068693682, guid: 4138b391fa7380846b920d7f96dec997, type: 3}
+  - {fileID: 6402944990907085676, guid: 2eef4dd113d66674f805b7bdce600cfa, type: 3}
+  - {fileID: 8079210225137843833, guid: 6217234b9997c8c46876c21929775f6a, type: 3}
+  - {fileID: 6715367449308268435, guid: 6a039d0e358a69a4794fe537c9398c55, type: 3}
+  - {fileID: 6501691357623586832, guid: 10dfa71d000344444973f63cb23b78cd, type: 3}
   _pickupLifeTime: 3
+  _pickupSpeed: 0.4
 --- !u!1 &560810189
 GameObject:
   m_ObjectHideFlags: 0

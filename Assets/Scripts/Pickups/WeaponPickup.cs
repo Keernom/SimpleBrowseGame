@@ -9,7 +9,6 @@ public class WeaponPickup : Pickup
     public override void GetBonus(GameObject player)
     {
         player.GetComponent<PlayerShoot>().SetWeapon(weapon);
-
         GetManager().DestroyAllPickups();
     }
 }
