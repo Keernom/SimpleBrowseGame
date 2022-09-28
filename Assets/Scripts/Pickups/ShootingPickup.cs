@@ -4,9 +4,9 @@ using UnityEngine;
 public class ShootingPickup : Pickup
 {
     [SerializeField] Stats _statToUpgrade;
-    [SerializeField] float _upgradeValue;
-
+    
     Weapon _weapon;
+    float _upgradeValue;
 
     private void Start()
     {

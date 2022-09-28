@@ -4,8 +4,7 @@ using UnityEngine;
 
 public abstract class Pickup : MonoBehaviour
 {
-    [SerializeField] protected TextMeshPro text;
-
+    protected TextMeshPro text;
     float _speed;
     UpgradeManager _upgradeManger;
 

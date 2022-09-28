@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoubleShotPattern : MonoBehaviour, IShootable
+public class DoublerPattern : MonoBehaviour, IShootable
 {
     IEnumerator Shooting()
     {
@@ -14,9 +14,9 @@ public class DoubleShotPattern : MonoBehaviour, IShootable
             for (int i = 0; i < 2; i++)
             {
                 Vector3 position = transform.GetChild(i).position;
-                position.z += 2;
+                position.z += 3;
                 var a = Instantiate(_projectilePrefab, position, Quaternion.identity);
-                a.GetComponent<Projectile>().SetStats(weapon.GetSpeed, weapon.GetDamage);
+                a.GetComponent<Projectile>().SetStats(Vector3.forward, weapon.GetSpeed, weapon.GetDamage);
             }
             
             yield return new WaitForSeconds(weapon.GetFireRate);

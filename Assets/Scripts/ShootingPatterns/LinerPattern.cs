@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class LinePattern : MonoBehaviour, IShootable
+public class LinerPattern : MonoBehaviour, IShootable
 {
     IEnumerator Shooting()
     {
@@ -10,8 +10,10 @@ public class LinePattern : MonoBehaviour, IShootable
         
         while (true)
         {
-            var a = Instantiate(_projectilePrefab, transform.position, Quaternion.identity);
-            a.GetComponent<Projectile>().SetStats(weapon.GetSpeed, weapon.GetDamage);
+            Vector3 position = transform.position;
+            position.z += 3;
+            var a = Instantiate(_projectilePrefab, position, Quaternion.identity);
+            a.GetComponent<Projectile>().SetStats(Vector3.forward, weapon.GetSpeed, weapon.GetDamage);
             yield return new WaitForSeconds(weapon.GetFireRate);
         }
     }

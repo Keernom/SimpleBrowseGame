@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6cf8a0eaac8fe9e4ba985bdb81f04df7, type: 3}
-  m_Name: Liner
+  m_Name: Tripler
   m_EditorClassIdentifier: 
-  _weaponPrefab: {fileID: 460343220912847115, guid: d96d9fda51733084681f9b348eeb92a3,
+  _weaponPrefab: {fileID: 514843846473021611, guid: 681c280136afc5b4cbdff99da0cc3953,
     type: 3}
   _projectilePrefab: {fileID: 5939479244645142046, guid: c2f4422c54c9ed04da5220bdb884ae3c,
     type: 3}
-  _weaponDamage: 1
-  _fireRate: 10
-  _projectileSpeed: 20
+  _weaponDamage: 2
+  _fireRate: 2
+  _projectileSpeed: 7

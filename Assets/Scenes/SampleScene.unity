@@ -201,6 +201,7 @@ MonoBehaviour:
   - {fileID: 8079210225137843833, guid: 6217234b9997c8c46876c21929775f6a, type: 3}
   - {fileID: 6715367449308268435, guid: 6a039d0e358a69a4794fe537c9398c55, type: 3}
   - {fileID: 6501691357623586832, guid: 10dfa71d000344444973f63cb23b78cd, type: 3}
+  - {fileID: 7731866804613324717, guid: a67f2f5bf9f2d6f4a8420c3117e6169f, type: 3}
   _pickupLifeTime: 3
   _pickupSpeed: 0.4
 --- !u!1 &560810189
@@ -5662,5 +5663,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7829957886310194010, guid: 266059f430cf91e4da581bbdf5217705,
+        type: 3}
+      propertyPath: _defaultWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 9d00c774a64fd9e479f3bab2c48e9107,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 266059f430cf91e4da581bbdf5217705, type: 3}

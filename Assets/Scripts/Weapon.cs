@@ -60,6 +60,6 @@ public class Weapon : ScriptableObject
 
     public void UpdateStat(Stats stat, float valueInPercent)
     {
-        _statsDict[stat] += _defaultStatsDict[stat] * valueInPercent;
+        _statsDict[stat] += Mathf.CeilToInt(_defaultStatsDict[stat] * valueInPercent);
     }
 }

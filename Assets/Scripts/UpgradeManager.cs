@@ -22,9 +22,7 @@ public class UpgradeManager : MonoBehaviour
 
     private void Start()
     {
-        _pickupScaleX = _pickupsList[1].transform.localScale.x * 3;
-        float _spawnOffset = _pickupScaleX / 2;
-        _firstElementPos = -_pickupsSpawnCount * _pickupScaleX/ 2 + _spawnOffset;
+        SpawnPointSetup();
 
         _weaponUpgradeDict.Add(Stats.Damage, 0);
         _weaponUpgradeDict.Add(Stats.FireRate, 0);
@@ -33,6 +31,13 @@ public class UpgradeManager : MonoBehaviour
         _spawnPos = new Vector3(_firstElementPos, 0, 25);
 
         ScoreCounter.onScoreEvent += UpgradeInitialize;
+    }
+
+    private void SpawnPointSetup()
+    {
+        _pickupScaleX = _pickupsList[1].transform.localScale.x * 3;
+        float _spawnOffset = _pickupScaleX / 2;
+        _firstElementPos = -_pickupsSpawnCount * _pickupScaleX / 2 + _spawnOffset;
     }
 
     void UpgradeInitialize()
