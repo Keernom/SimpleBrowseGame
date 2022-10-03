@@ -749,8 +749,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4875b94f10a3f634480956e4b6bfeea7, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 4875b94f10a3f634480956e4b6bfeea7, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6040ab4e262761742b2af5fe1dd75368, type: 2}
+  m_sharedMaterial: {fileID: 4629618965428113293, guid: 6040ab4e262761742b2af5fe1dd75368,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -774,8 +775,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 64
-  m_fontSizeBase: 64
+  m_fontSize: 96
+  m_fontSizeBase: 96
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5663,7 +5664,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _defaultWeapon
       value: 
-      objectReference: {fileID: 11400000, guid: d3dff57759eeee9409e359b7a7620fe7,
+      objectReference: {fileID: 11400000, guid: 9d00c774a64fd9e479f3bab2c48e9107,
         type: 2}
     - target: {fileID: 7829957886310194011, guid: 266059f430cf91e4da581bbdf5217705,
         type: 3}
