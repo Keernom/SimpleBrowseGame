@@ -22,8 +22,6 @@ public class EnemyHP : MonoBehaviour
         float hitPoints = Random.Range(_colorController.MaxHp / 2.5f, _colorController.MaxHp);
         _health = Mathf.CeilToInt(hitPoints);
 
-        print(_colorController.MaxHp);
-
         _material = _renderer.material;
         _material.SetColor("_Color", _colorController.GetColorByHealthPercent(_health / _colorController.MaxHp));
     }

@@ -74,4 +74,9 @@ public class EnemySpawn : MonoBehaviour
             _spawnPos.x += _enemyScaleX;
         }
     }
+
+    private void OnDisable()
+    {
+        ScoreCounter.onScoreEvent -= StopSpawn;
+    }
 }
