@@ -19,11 +19,6 @@ public abstract class Pickup : MonoBehaviour
         StartCoroutine(MoveToCenter());
     }
 
-    private void Start()
-    {
-        
-    }
-
     public UpgradeManager GetManager()
     {
         return _upgradeManger;
@@ -32,7 +27,7 @@ public abstract class Pickup : MonoBehaviour
     IEnumerator MoveToCenter()
     {
         Vector3 startPosition = transform.position;
-        Vector3 endPosition = new Vector3(startPosition.x, 0, 0);
+        Vector3 endPosition = new Vector3(startPosition.x, 0, 4);
         float travelPercent = 0f;
 
         while(travelPercent < 1)

@@ -8,7 +8,7 @@ public class ScoreCounter : MonoBehaviour
 {
     [SerializeField] float _fontSizeMultiplier;
     [SerializeField] float _timeToDefault;
-    [SerializeField]float _eventScores;
+    [SerializeField] float _eventScores;
 
     TextMeshProUGUI _text;
     public static UnityAction onScoreEvent;
@@ -38,7 +38,7 @@ public class ScoreCounter : MonoBehaviour
         if (_scores >= _eventScores)
         {
             onScoreEvent?.Invoke();
-            _eventScores *= 1.5f;
+            _eventScores *= 2.5f;
         }
             
 

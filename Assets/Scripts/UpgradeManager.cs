@@ -28,7 +28,7 @@ public class UpgradeManager : MonoBehaviour
         _weaponUpgradeDict.Add(Stats.FireRate, 0);
         _weaponUpgradeDict.Add(Stats.ProjectileSpeed, 0);
 
-        _spawnPos = new Vector3(_firstElementPos, 0, 25);
+        _spawnPos = new Vector3(_firstElementPos, 0, 30);
 
         ScoreCounter.onScoreEvent += UpgradeInitialize;
     }

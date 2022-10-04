@@ -5,8 +5,9 @@ public class ColorController : MonoBehaviour
 {
     [SerializeField] public float _maxHP = 0;
     [SerializeField] float _hpMultiplier;
-
     [SerializeField] List<Color> _colorList;
+
+    public float MaxHp { get { return Mathf.FloorToInt(_maxHP); } }
 
     Dictionary<float, Color> _colorDict = new Dictionary<float, Color>();
     List<float> _keyList = new List<float>();
