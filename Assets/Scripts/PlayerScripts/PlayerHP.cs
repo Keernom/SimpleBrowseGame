@@ -1,15 +1,17 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerHP : MonoBehaviour
 {
+    [SerializeField] ParticleSystem _explosion; 
     [SerializeField] SpriteRenderer _hitBar;
     [SerializeField] float _maxHealth = 1;
-    
+
+    public UnityAction OnDeath;
     ColorController _colorController;
 
-    [SerializeField] float _currentHealth;
-
     Vector3 _startScale;
+    [SerializeField] float _currentHealth;
 
     private void Start()
     {
@@ -30,8 +32,16 @@ public class PlayerHP : MonoBehaviour
 
         if (_currentHealth <= 0)
         {
-            Destroy(gameObject);
+            OnDeath?.Invoke();
+            Death();
         }
+    }
+
+    private void Death()
+    {
+        Instantiate(_explosion, transform.position, Quaternion.identity);
+        GetComponent<PlayerShoot>().GetWeapon().DestroyWeapon();
+        Destroy(gameObject);
     }
 
     void SetHealthBarColor()

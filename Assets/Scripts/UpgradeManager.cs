@@ -104,6 +104,11 @@ public class UpgradeManager : MonoBehaviour
         }
     }
 
+    public void ClearUpgradeDict()
+    {
+        _weaponUpgradeDict.Clear();
+    }
+
     IEnumerator CountEnemies()
     {
         _enemyCount = FindObjectsOfType<EnemyHP>().Length;
@@ -114,6 +119,12 @@ public class UpgradeManager : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
-        PickupSpawn();
+        if (FindObjectOfType<PlayerShoot>() != null)
+            PickupSpawn();
+    }
+
+    private void OnDisable()
+    {
+        ScoreCounter.onScoreEvent -= UpgradeInitialize;
     }
 }
