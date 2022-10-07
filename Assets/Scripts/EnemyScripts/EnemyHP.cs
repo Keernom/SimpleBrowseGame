@@ -9,6 +9,7 @@ public class EnemyHP : MonoBehaviour
     float _health = -1;
     public int Health { get { return Mathf.CeilToInt(_health); } }
 
+    public ParticleSystem GetExplosion { get { return _explosion; } }
     public UnityAction OnHit;
 
     ScoreCounter _scoreCounter;

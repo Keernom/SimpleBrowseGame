@@ -8,6 +8,7 @@ public class Weapon : ScriptableObject
 {
     [SerializeField] GameObject _weaponPrefab;
     [SerializeField] GameObject _projectilePrefab;
+    [SerializeField] AudioClip _shootSound;
 
     [SerializeField] float _weaponDamage;
     [SerializeField] float _fireRate;
@@ -18,6 +19,7 @@ public class Weapon : ScriptableObject
     private Dictionary<Stats, float> _defaultStatsDict = new Dictionary<Stats, float>();
 
     public GameObject GetProjectile { get { return _projectilePrefab; } }
+    public AudioClip GetAudio { get { return _shootSound; } }
 
     public float GetDamage { get { return _statsDict[Stats.Damage]; } }
     public float GetSpeed { get { return _statsDict[Stats.ProjectileSpeed]; } }

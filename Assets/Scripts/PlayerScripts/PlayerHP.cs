@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 public class PlayerHP : MonoBehaviour
 {
-    [SerializeField] ParticleSystem _explosion; 
+    [SerializeField] ParticleSystem _explosionEffect; 
     [SerializeField] SpriteRenderer _hitBar;
     [SerializeField] float _maxHealth = 1;
 
@@ -11,7 +11,7 @@ public class PlayerHP : MonoBehaviour
     ColorController _colorController;
 
     Vector3 _startScale;
-    [SerializeField] float _currentHealth;
+    float _currentHealth;
 
     private void Start()
     {
@@ -39,7 +39,7 @@ public class PlayerHP : MonoBehaviour
 
     private void Death()
     {
-        Instantiate(_explosion, transform.position, Quaternion.identity);
+        Instantiate(_explosionEffect, transform.position, Quaternion.identity);
         GetComponent<PlayerShoot>().GetWeapon().DestroyWeapon();
         Destroy(gameObject);
     }
