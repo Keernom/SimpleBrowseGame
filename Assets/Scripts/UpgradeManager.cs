@@ -5,10 +5,8 @@ using UnityEngine;
 public class UpgradeManager : MonoBehaviour
 {
     [SerializeField] List<Pickup> _pickupsList;
-    [SerializeField] float _pickupLifeTime;
     [SerializeField] float _pickupSpeed;
 
-    public float PickupLifeTime { get { return _pickupLifeTime; } }
     public float PickupSpeed { get { return _pickupSpeed; } }
 
     Dictionary<Stats, float> _weaponUpgradeDict = new Dictionary<Stats, float>();
@@ -58,18 +56,25 @@ public class UpgradeManager : MonoBehaviour
             while(!isSpawned)
             {
                 int itemIndex = Mathf.FloorToInt(Random.Range(0, _pickupsList.Count));
-                if (!spawnedPickups.Contains(itemIndex))
+
+                if (!spawnedPickups.Contains(itemIndex) && !IsItPlayersWeapon(itemIndex))
                 {
                     isSpawned = true;
                     spawnedPickups.Add(itemIndex);
                     Instantiate(_pickupsList[itemIndex], _spawnPos, Quaternion.identity);
-                }   
+                }
             }
 
             _spawnPos.x += _pickupScaleX;
         }
         spawnedPickups.Clear();
         _spawnPos.x = _firstElementPos;
+    }
+
+    private bool IsItPlayersWeapon(int itemIndex)
+    {
+        return _pickupsList[itemIndex].GetComponent<WeaponPickup>() != null &&
+                            FindObjectOfType<PlayerShoot>().GetWeapon() == _pickupsList[itemIndex].GetComponent<WeaponPickup>().GetPickupWeapon;
     }
 
     public void DestroyAllPickups()

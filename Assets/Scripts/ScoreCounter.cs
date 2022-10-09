@@ -38,9 +38,8 @@ public class ScoreCounter : MonoBehaviour
         if (_scores >= _eventScores)
         {
             onScoreEvent?.Invoke();
-            _eventScores *= 2.5f;
+            _eventScores = _scores < 500 ? _eventScores * 2.5f : _eventScores + 1000;
         }
-            
 
         StartCoroutine(nameof(ChangeTextsize));
     }

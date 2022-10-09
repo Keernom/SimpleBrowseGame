@@ -202,7 +202,6 @@ MonoBehaviour:
   - {fileID: 6715367449308268435, guid: 6a039d0e358a69a4794fe537c9398c55, type: 3}
   - {fileID: 6501691357623586832, guid: 10dfa71d000344444973f63cb23b78cd, type: 3}
   - {fileID: 7731866804613324717, guid: a67f2f5bf9f2d6f4a8420c3117e6169f, type: 3}
-  _pickupLifeTime: 3
   _pickupSpeed: 0.4
 --- !u!1 &560810189
 GameObject:
@@ -756,7 +755,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bc555a2c00601546b52a854e2146840, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHP: 30
+  _maxHP: 20
   _hpMultiplier: 0.2
   _colorList:
   - {r: 0.77254903, g: 0.011764725, b: 0.018991107, a: 0}
@@ -1034,11 +1033,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MusicPlayer
-      objectReference: {fileID: 0}
-    - target: {fileID: 1377199728225468974, guid: 8c2054cffbe687d4eb11a1e2ccd09973,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c2054cffbe687d4eb11a1e2ccd09973, type: 3}
@@ -6028,7 +6022,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _defaultWeapon
       value: 
-      objectReference: {fileID: 11400000, guid: 38fe8b02d31af68499e7a6401aba54b0,
+      objectReference: {fileID: 11400000, guid: d3dff57759eeee9409e359b7a7620fe7,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 266059f430cf91e4da581bbdf5217705, type: 3}
