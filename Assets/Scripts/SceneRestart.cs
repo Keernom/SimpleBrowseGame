@@ -13,7 +13,10 @@ public class SceneRestart : MonoBehaviour, IPointerClickHandler
         FindObjectOfType<PlayerHP>().OnDeath += EnableTrigger;
     }
 
-    private void EnableTrigger() => gameObject.SetActive(true);
+    private void EnableTrigger()
+    {
+        gameObject.SetActive(true);
+    }
 
     public void OnPointerClick(PointerEventData eventData)
     {
