@@ -21,7 +21,6 @@ public class SceneRestart : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         GetComponent<AudioSource>().PlayOneShot(_buttonPressedSound);
-        print("asd");
         Invoke("SceneLoad", _levelLoadDelay);
     }
 

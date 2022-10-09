@@ -5666,7 +5666,7 @@ MonoBehaviour:
   _enemyPrefab: {fileID: 3079095947131872553, guid: 1302e47fd0f1fc948b32ddc7ebd973cc,
     type: 3}
   _parent: {fileID: 1536347423}
-  _enemyCount: 10
+  _enemyCount: 11
   _spawnCooldown: {x: 0.5, y: 2}
 --- !u!4 &1820962608
 Transform:
