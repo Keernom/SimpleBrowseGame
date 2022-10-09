@@ -12,7 +12,7 @@ public class TextFader : MonoBehaviour
     TMP_Text _text;
     CanvasRenderer _canvas;
 
-    private void Start()
+    private void OnEnable()
     {
         _text = GetComponent<TMP_Text>();
         _canvas = GetComponent<CanvasRenderer>();

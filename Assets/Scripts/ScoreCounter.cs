@@ -48,10 +48,10 @@ public class ScoreCounter : MonoBehaviour
     {
         while (_text.gameObject.transform.localScale.x > _startFontSize.x)
         {
-            float currentXScale = _text.gameObject.transform.localScale.x;
-            float currentYScale = _text.gameObject.transform.localScale.y;
+            Vector3 localScale = _text.gameObject.transform.localScale;
+            float currentXScale = localScale.x;
+            float currentYScale = localScale.y;
             _text.gameObject.transform.localScale = new Vector3(currentXScale - Time.deltaTime / _timeToDefault, currentYScale - Time.deltaTime / _timeToDefault, _startFontSize.z);
-            //_text.gameObject.transform.localScale -= Time.deltaTime / _timeToDefault * 25;
             yield return null;
         }
     }
