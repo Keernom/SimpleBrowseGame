@@ -7,10 +7,13 @@ public class SceneRestart : MonoBehaviour, IPointerClickHandler
     [SerializeField] float _levelLoadDelay;
     [SerializeField] AudioClip _buttonPressedSound;
 
+    PlayerHP _playerHP;
+
     private void Start()
     {
+        _playerHP = FindObjectOfType<PlayerHP>();
         gameObject.SetActive(false);
-        FindObjectOfType<PlayerHP>().OnDeath += EnableTrigger;
+        _playerHP.OnDeath += EnableTrigger;
     }
 
     private void EnableTrigger()
@@ -27,5 +30,10 @@ public class SceneRestart : MonoBehaviour, IPointerClickHandler
     private void SceneLoad()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    private void OnDestroy()
+    {
+        _playerHP.OnDeath -= EnableTrigger;
     }
 }

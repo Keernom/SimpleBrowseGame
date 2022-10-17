@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.Events;
 
 public class PlayerHP : MonoBehaviour
@@ -9,12 +10,14 @@ public class PlayerHP : MonoBehaviour
 
     public UnityAction OnDeath;
     ColorController _colorController;
+    ScoreCounter _scoreCounter;
 
     Vector3 _startScale;
     float _currentHealth;
 
     private void Start()
     {
+        _scoreCounter = FindObjectOfType<ScoreCounter>();
         _colorController = FindObjectOfType<ColorController>();
         _currentHealth = _maxHealth;
 
@@ -34,7 +37,15 @@ public class PlayerHP : MonoBehaviour
         {
             OnDeath?.Invoke();
             Death();
+            GenerateLeaderboard();
         }
+    }
+
+    void GenerateLeaderboard()
+    {
+        LeaderBoard leaderBoard = FindObjectOfType<LeaderBoard>();
+        leaderBoard.StartCoroutine(leaderBoard.SubmitScoreRutine(Mathf.FloorToInt(_scoreCounter.Scores)));
+        leaderBoard.StartCoroutine(leaderBoard.FetchTopHighscoreRutine());
     }
 
     private void Death()
