@@ -11,6 +11,17 @@ public class LeaderBoard : MonoBehaviour
 
     int _leaderBoardID = 7889;
 
+    public void GenLB()
+    {
+        StartCoroutine(GenerateLeaderboard());
+    }
+
+    public IEnumerator GenerateLeaderboard()
+    {
+        yield return SubmitScoreRutine(Mathf.FloorToInt(FindObjectOfType<ScoreCounter>().Scores));
+        yield return FetchTopHighscoreRutine();
+    }
+
     public IEnumerator SubmitScoreRutine(int scoreToSubmit)
     {
         bool done = false;
@@ -41,8 +52,8 @@ public class LeaderBoard : MonoBehaviour
         {
             if (response.success)
             {
-                string tempPlayerNames = "Names\n";
-                string tempPlayerScores = "Scores\n";
+                string tempPlayerNames = "Name\n";
+                string tempPlayerScores = "Score\n";
 
                 LootLockerLeaderboardMember[] members = response.items;
 

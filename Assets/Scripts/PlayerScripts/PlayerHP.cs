@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,14 +11,17 @@ public class PlayerHP : MonoBehaviour
 
     public UnityAction OnDeath;
     ColorController _colorController;
-    ScoreCounter _scoreCounter;
+    LeaderBoard _leaderBoard;
 
     Vector3 _startScale;
     float _currentHealth;
 
+    bool _isAlive = true;
+    public bool IsAlive { get { return _isAlive; } }
+
     private void Start()
     {
-        _scoreCounter = FindObjectOfType<ScoreCounter>();
+        _leaderBoard = FindObjectOfType<LeaderBoard>();
         _colorController = FindObjectOfType<ColorController>();
         _currentHealth = _maxHealth;
 
@@ -37,16 +41,23 @@ public class PlayerHP : MonoBehaviour
         {
             OnDeath?.Invoke();
             Death();
-            GenerateLeaderboard();
+            ProjectileDestuction();
+            _isAlive = false;
+            _leaderBoard.GenLB();
         }
     }
 
-    void GenerateLeaderboard()
+    private void ProjectileDestuction()
     {
-        LeaderBoard leaderBoard = FindObjectOfType<LeaderBoard>();
-        leaderBoard.StartCoroutine(leaderBoard.SubmitScoreRutine(Mathf.FloorToInt(_scoreCounter.Scores)));
-        leaderBoard.StartCoroutine(leaderBoard.FetchTopHighscoreRutine());
+        Projectile[] projectiles = FindObjectsOfType<Projectile>();
+
+        foreach(var item in projectiles)
+        {
+            item.ProjectileExplosion();
+        }
     }
+
+    
 
     private void Death()
     {

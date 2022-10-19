@@ -2,6 +2,8 @@
 
 public class Projectile : MonoBehaviour
 {
+    [SerializeField] ParticleSystem _projectileExplosion;
+
     Vector3 _direction;
     float _speed;
     float _projectileDamage;
@@ -28,6 +30,12 @@ public class Projectile : MonoBehaviour
                 enemyhp.ApplyDamage(_projectileDamage);
             Destroy(gameObject);
         }
+    }
+
+    public void ProjectileExplosion()
+    {
+        var explosion = Instantiate(_projectileExplosion, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 
     private void OnBecameInvisible()

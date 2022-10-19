@@ -11,6 +11,7 @@ public class ScoreCounter : MonoBehaviour
     [SerializeField] float _eventScores;
 
     TextMeshProUGUI _text;
+    PlayerHP _playerHp;
     public static UnityAction onScoreEvent;
     float _scores;
     
@@ -21,10 +22,18 @@ public class ScoreCounter : MonoBehaviour
 
     void Start()
     {
+        _playerHp = FindObjectOfType<PlayerHP>();
         _text = GetComponent<TextMeshProUGUI>();
         _startFontSize = _text.gameObject.transform.localScale;
         _fontSizeMultiplier = _fontSizeMultiplier / 100 + 1;
         _finalFontSize = _startFontSize * _fontSizeMultiplier;
+
+        _playerHp.OnDeath += MoveText;
+    }
+
+    public void MoveText()
+    {
+        GetComponent<Animator>().SetTrigger("Move");
     }
 
     public void ScoreUpdate(float scoreToPlus)
@@ -54,5 +63,10 @@ public class ScoreCounter : MonoBehaviour
             _text.gameObject.transform.localScale = new Vector3(currentXScale - Time.deltaTime / _timeToDefault, currentYScale - Time.deltaTime / _timeToDefault, _startFontSize.z);
             yield return null;
         }
+    }
+
+    private void OnDisable()
+    {
+        _playerHp.OnDeath -= MoveText;
     }
 }
