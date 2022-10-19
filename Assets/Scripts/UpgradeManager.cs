@@ -33,7 +33,7 @@ public class UpgradeManager : MonoBehaviour
 
     private void SpawnPointSetup()
     {
-        _pickupScaleX = _pickupsList[1].transform.localScale.x * 3;
+        _pickupScaleX = _pickupsList[1].transform.localScale.x * 3 * 2;
         float _spawnOffset = _pickupScaleX / 2;
         _firstElementPos = -_pickupsSpawnCount * _pickupScaleX / 2 + _spawnOffset;
     }
